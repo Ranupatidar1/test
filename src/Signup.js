@@ -12,7 +12,8 @@ const Signup =()=>{
      const [country_id, setCountry_id]= useState("");
      const [state_id, setState_id]= useState("");
      const [city_id, setCity_id]= useState("");
-     const [role_type, setRole_type]=useState("");
+     const [role_type, setRole_type]= useState("")
+     
      
      const PostData =()=>{
         
@@ -59,11 +60,12 @@ const Signup =()=>{
           <h4>password</h4>
           <input type="text" value={password} onChange={e=> setPassword(e.target.value)}/>
           <h4>role_type</h4>
-          <select name="role_type" id="Quiz" value={option} onSelect={e=>setRole_type(e.tartet.value)}>
-              <option>recriter</option>
-              <option>employee</option>
+          <select name="role_type" id="Quiz" value={role_type} onChange={e=>setRole_type(e.target.value)}>
+              <option></option>
+              <option>recruter</option>
+             <option >employee</option>
         
-       </select>
+          </select>
           
           <h4>country</h4>
           <input type="text" value={country} onChange={e=> setCountry(e.target.value)}/>
