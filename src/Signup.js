@@ -12,6 +12,7 @@ const Signup =()=>{
      const [country_id, setCountry_id]= useState("");
      const [state_id, setState_id]= useState("");
      const [city_id, setCity_id]= useState("");
+     const [role_type, setRole_type]=useState("");
      
      const PostData =()=>{
         
@@ -19,16 +20,23 @@ const Signup =()=>{
             method:"post",
             headers:{
               "content-Type":"application/json"
+
             },
             body:JSON.stringify({
               name,
               password,
-              email
+              email,
+              country,
+              state,
+              role_type,
+              country_id,
+              state_id,
+              city_id
             })
           })
         .then(res=> res.json())
-        .then(data=>{
-            console.log(data)
+        .then(res=>{
+            console.log(res)
               navigate("/signin")
             
           }).catch(err=>{
@@ -51,7 +59,7 @@ const Signup =()=>{
           <h4>password</h4>
           <input type="text" value={password} onChange={e=> setPassword(e.target.value)}/>
           <h4>role_type</h4>
-          <select name="role_type" id="Quiz">
+          <select name="role_type" id="Quiz" value={option} onSelect={e=>setRole_type(e.tartet.value)}>
               <option>recriter</option>
               <option>employee</option>
         
